@@ -26,7 +26,7 @@ const prices = document.querySelectorAll(".price");
     // Create total price cell
     const totalCell = document.createElement("td");
     totalCell.colSpan = 2;
-    totalCell.innerText = `Total Price: Rs ${total}`;
+    totalCell.innerText = ` ${total}`;
     totalCell.style.fontWeight = "bold";
     totalCell.style.textAlign = "center";
 
