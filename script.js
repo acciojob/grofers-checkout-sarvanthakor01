@@ -8,18 +8,21 @@ if (!ansDiv) {
     ansDiv.id = "ans";
     ansDiv.style.fontWeight = "bold";
     document.body.appendChild(ansDiv);
-
+}
 const getSum = () => {
 //Add your code here
- const prices = document.querySelectorAll(".price");
+  const prices = document.querySelectorAll(".price");
     let total = 0;
 
     // Calculate sum
     prices.forEach(price => {
-        total += parseFloat(price.innerText) || 0;
+        let value = parseFloat(price.innerText.trim()); // Trim spaces and convert to number
+        if (!isNaN(value)) {
+            total += value;
+        }
     });
 
-    // Display result inside #ans
+    // Update #ans with total price
     ansDiv.innerText = `Total Price: Rs ${total}`;
 };
 
