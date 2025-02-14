@@ -2,37 +2,25 @@ const getSumBtn = document.createElement("button");
 getSumBtn.append("Get Total Price");
 document.body.appendChild(getSumBtn);
 
+let ansDiv = document.getElementById("ans");
+if (!ansDiv) {
+    ansDiv = document.createElement("div");
+    ansDiv.id = "ans";
+    ansDiv.style.fontWeight = "bold";
+    document.body.appendChild(ansDiv);
+
 const getSum = () => {
 //Add your code here
-const prices = document.querySelectorAll(".price");
+ const prices = document.querySelectorAll(".price");
     let total = 0;
 
     // Calculate sum
     prices.forEach(price => {
-        total += parseFloat(price.innerText) || 0; // Convert to number
+        total += parseFloat(price.innerText) || 0;
     });
 
-    // Remove existing total row if present (so it doesn't duplicate)
-    const existingTotalRow = document.getElementById("totalRow");
-    if (existingTotalRow) {
-        existingTotalRow.remove();
-    }
-
-    // Get table and create new row for total
-    const table = document.querySelector("table");
-    const newRow = document.createElement("tr");
-    newRow.id = "totalRow"; // Assign ID for easy removal
-
-    // Create total price cell
-    const totalCell = document.createElement("td");
-    totalCell.colSpan = 2;
-    totalCell.innerText = ` ${total}`;
-    totalCell.style.fontWeight = "bold";
-    totalCell.style.textAlign = "center";
-
-    newRow.appendChild(totalCell);
-    table.appendChild(newRow);	
-  
+    // Display result inside #ans
+    ansDiv.innerText = `Total Price: Rs ${total}`;
 };
 
 getSumBtn.addEventListener("click", getSum);
