@@ -6,7 +6,6 @@ let ans = document.getElementById("ans");
 if (!ans) {
     ans = document.createElement("div");
     ans.id = "ans";
-    ans.style.fontWeight = "bold";
     document.body.appendChild(ans);
 }
 const getSum = () => {
